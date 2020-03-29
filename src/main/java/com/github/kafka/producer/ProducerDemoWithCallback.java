@@ -1,4 +1,4 @@
-package com.github.producer.kafka;
+package com.github.kafka.producer;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;

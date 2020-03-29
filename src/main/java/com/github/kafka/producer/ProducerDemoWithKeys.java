@@ -1,4 +1,4 @@
-package com.github.producer.kafka;
+package com.github.kafka.producer;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -32,7 +32,13 @@ public class ProducerDemoWithKeys {
 
             ProducerRecord<String, String> record = new ProducerRecord<String, String>(topic, key, value);
             logger.info("Key is : "+key);
-
+            //0 1
+            //1 0
+            //2 2
+            //3 0
+            //4 2
+            //5 2
+            //6 0
             producer.send(record, new Callback() {
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     //executes every time a record is sent or an exception happens
@@ -44,7 +50,7 @@ public class ProducerDemoWithKeys {
                         logger.error("Exception while producing", e);
                     }
                 }
-            }).get();
+            }).get(); //Not a good practice to add .get as it makes it synchronous. Adding it here only for testing.
         }
         //send data
 
